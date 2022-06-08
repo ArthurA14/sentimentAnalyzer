@@ -1,0 +1,33 @@
+<html>
+    <head>
+	<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+        <title>{{ title }} Sentiment Analysis</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <h1>Movie reviews analyzer</h1>
+        <form method="POST">
+            <textarea name="text1" placeholder="Say Something: ...." rows="10" cols="109"></textarea><br><br>
+
+            <input class="example_a" type="submit">
+        {% if score %}
+        </form>
+        {% if label=="POSITIVE" %}
+        <div>
+            <h2>The Sentiment of: </h2> '{{ text1 }}' <h2>is {{ score*100 }}% positive !</h2>
+        </div>
+          {% else %}
+        <div>
+          <h2>The Sentiment of: </h2> '{{ text1 }}' <h2>is {{ score*100 }}% negative !</h2>
+        </div>
+        {% endif %}
+        {% else %}
+            <p></p>
+        {% endif %}
+    </body>
+</html>
+
